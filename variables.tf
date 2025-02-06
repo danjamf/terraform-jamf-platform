@@ -501,3 +501,7 @@ variable "include_crowdstrike" {
   default = false
 }
 
+variable "include_jsc_all_services_mobile_supervised" {
+  type    = bool
+  default = false
+}

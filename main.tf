@@ -204,6 +204,13 @@ module "jsc_all_services" {
   tje_okta_orgdomain = var.tje_okta_orgdomain
 }
 
+module "jsc_all_services_mobile_supervised" {
+  count              = var.include_jsc_all_services_mobile_supervised == true ? 1 : 0
+  source             = "./modules/configuration_jamf_security_cloud_all_services_mobile_supervised"
+  tje_okta_clientid  = var.tje_okta_clientid
+  tje_okta_orgdomain = var.tje_okta_orgdomain
+}
+
 module "jsc_ap_adobe" {
   count  = var.include_jsc_ap_adobe == true ? 1 : 0
   source = "./modules/network_security_access_policy_adobe"

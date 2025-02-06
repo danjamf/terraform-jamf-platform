@@ -18,38 +18,25 @@ resource "random_integer" "entropy" {
 }
 
 resource "jsc_oktaidp" "okta_idp_base" {
-  clientid  = var.tje_okta_clientid
-  name      = "Okta IDP Integration"
-  orgdomain = var.tje_okta_orgdomain
+  clientid   = var.tje_okta_clientid
+  name       = "Okta IDP Integration"
+  orgdomain  = var.tje_okta_orgdomain
+  depends_on = [random_integer.entropy]
 }
 
 resource "jsc_ap" "all_services" {
-  name             = "Jamf Connect ZTNA and Protect (macOS) [${random_integer.entropy.result}]"
+  name             = "Jamf Connect ZTNA and Protect - Mobile (Supervised) [${random_integer.entropy.result}]"
   idptype          = "OKTA"
   oktaconnectionid = jsc_oktaidp.okta_idp_base.id
   privateaccess    = true
   threatdefence    = true
   datapolicy       = true
+  depends_on       = [jsc_oktaidp.okta_idp_base]
 }
 
 resource "jamfpro_category" "jsc_all_services_profiles" {
-  name     = "Jamf Security Cloud [${random_integer.entropy.result}]"
-  priority = 9
-}
-
-resource "jamfpro_macos_configuration_profile_plist" "all_services_macos" {
-  name                = "Jamf Connect ZTNA + Jamf Protect Threat and Content Control - macOS (Supervised) [${random_integer.entropy.result}]"
-  distribution_method = "Install Automatically"
-  redeploy_on_update  = "Newly Assigned"
-  level               = "System"
-  category_id         = jamfpro_category.jsc_all_services_profiles.id
-
-  payloads         = jsc_ap.all_services.macosplist
-  payload_validate = false
-
-  scope {
-    all_computers = false
-  }
+  name       = "Jamf Security Cloud [${random_integer.entropy.result}]"
+  priority   = 9
   depends_on = [jsc_ap.all_services]
 }
 
@@ -68,5 +55,5 @@ resource "jamfpro_mobile_device_configuration_profile_plist" "all_services_mobil
     all_mobile_devices = false
     all_jss_users      = false
   }
-  depends_on = [jamfpro_macos_configuration_profile_plist.all_services_macos]
+  depends_on = [jamfpro_category.jsc_all_services_profiles]
 }
