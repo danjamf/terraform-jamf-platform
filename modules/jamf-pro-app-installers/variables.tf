@@ -70,7 +70,7 @@ variable "log_event_notifications_for_this_app" {
 variable "notification_message" {
   description = "Message to display as the push notification (up to 150 characters) when an update is available."
   type        = string
-  default     = "A new ${var.software_title} update is available"
+  default     = "A new software update is available"
 }
 
 variable "notification_frequency" {
