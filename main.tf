@@ -138,50 +138,55 @@ module "rosetta" {
   source = "./modules/management-macOS-rosetta"
 }
 
-module "google_chrome" {
-  count  = var.include_google_chrome == true ? 1 : 0
-  source = "./modules/management-app-installers-google-chrome"
+module "jamf-pro-app-installers" {
+  #count  = var.include_google_chrome == true ? 1 : 0
+  source = "./modules/jamf-pro-app-installers"
 }
 
-module "mozilla_firefox" {
-  count  = var.include_mozilla_firefox == true ? 1 : 0
-  source = "./modules/management-app-installers-mozilla-firefox"
-}
+# module "google_chrome" {
+#   count  = var.include_google_chrome == true ? 1 : 0
+#   source = "./modules/management-app-installers-google-chrome"
+# }
 
-module "slack" {
-  count  = var.include_slack == true ? 1 : 0
-  source = "./modules/management-app-installers-slack"
-}
+# module "mozilla_firefox" {
+#   count  = var.include_mozilla_firefox == true ? 1 : 0
+#   source = "./modules/management-app-installers-mozilla-firefox"
+# }
 
-module "dropbox" {
-  count  = var.include_dropbox == true ? 1 : 0
-  source = "./modules/management-app-installers-dropbox"
-}
+# module "slack" {
+#   count  = var.include_slack == true ? 1 : 0
+#   source = "./modules/management-app-installers-slack"
+# }
 
-module "google_drive" {
-  count  = var.include_google_drive == true ? 1 : 0
-  source = "./modules/management-app-installers-google-drive"
-}
+# module "dropbox" {
+#   count  = var.include_dropbox == true ? 1 : 0
+#   source = "./modules/management-app-installers-dropbox"
+# }
 
-module "jamf_composer" {
-  count  = var.include_jamf_composer == true ? 1 : 0
-  source = "./modules/management-app-installers-jamf-composer"
-}
+# module "google_drive" {
+#   count  = var.include_google_drive == true ? 1 : 0
+#   source = "./modules/management-app-installers-google-drive"
+# }
 
-module "pppc_utility" {
-  count  = var.include_pppc_utility == true ? 1 : 0
-  source = "./modules/management-app-installers-pppc-utility"
-}
+# module "jamf_composer" {
+#   count  = var.include_jamf_composer == true ? 1 : 0
+#   source = "./modules/management-app-installers-jamf-composer"
+# }
 
-module "jamfcheck" {
-  count  = var.include_jamfcheck == true ? 1 : 0
-  source = "./modules/management-app-installers-jamfcheck"
-}
+# module "pppc_utility" {
+#   count  = var.include_pppc_utility == true ? 1 : 0
+#   source = "./modules/management-app-installers-pppc-utility"
+# }
 
-module "zoom" {
-  count  = var.include_zoom == true ? 1 : 0
-  source = "./modules/management-app-installers-zoom"
-}
+# module "jamfcheck" {
+#   count  = var.include_jamfcheck == true ? 1 : 0
+#   source = "./modules/management-app-installers-jamfcheck"
+# }
+
+# module "zoom" {
+#   count  = var.include_zoom == true ? 1 : 0
+#   source = "./modules/management-app-installers-zoom"
+# }
 
 ## Begin Jamf Security Cloud Configuration
 
