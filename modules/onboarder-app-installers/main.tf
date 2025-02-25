@@ -8,42 +8,42 @@ terraform {
   }
 }
 
-module "microsoft_365" {
+module "management-app-installers-microsoft-365" {
   source = "../management-app-installers-microsoft-365"
 }
 
-module "google_chrome" {
+module "management-app-installers-google-chrome" {
   source = "../management-app-installers-google-chrome"
 }
 
-module "mozilla_firefox" {
+module "management-app-installers-mozilla-firefox" {
   source = "../management-app-installers-mozilla-firefox"
 }
 
-module "slack" {
+module "management-app-installers-slack" {
   source = "../management-app-installers-slack"
 }
 
-module "dropbox" {
+module "management-app-installers-dropbox" {
   source = "../management-app-installers-dropbox"
 }
 
-module "google_drive" {
+module "management-app-installers-google-drive" {
   source = "../management-app-installers-google-drive"
 }
 
-module "jamf_composer" {
+module "management-app-installers-jamf-composer" {
   source = "../management-app-installers-jamf-composer"
 }
 
-module "pppc_utility" {
+module "management-app-installers-pppc-utility" {
   source = "../management-app-installers-pppc-utility"
 }
 
-module "jamfcheck" {
+module "management-app-installers-jamfcheck" {
   source = "../management-app-installers-jamfcheck"
 }
 
-module "zoom" {
+module "management-app-installers-zoom" {
   source = "../management-app-installers-zoom"
 }
