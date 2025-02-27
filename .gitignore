@@ -8,3 +8,4 @@ catalog-info.yaml
 plan.json
 plan.out
 *.terraformrc
+.lens/project.json
